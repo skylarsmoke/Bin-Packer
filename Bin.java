@@ -2,15 +2,18 @@ package Lab2;
 
 public class Bin {
 	
-	int capacity;
-	int openSpace;
+	private int capacity;
+	private int openSpace;
+	private int items = 0;
 	
 	public Bin(int capacity) {
 		this.capacity = capacity;
+		this.openSpace = capacity;
 	}
 
-	public void calculateSpace(int itemSize) {
+	public void put(int itemSize) {
 		this.openSpace = this.capacity - itemSize;
+		this.items++;
 	}
 	
 	public boolean checkFit(int itemSize) {
@@ -23,6 +26,10 @@ public class Bin {
 	
 	public int getOpenSpace() {
 		return this.openSpace;
+	}
+	
+	public int numItems() {
+		return this.items;
 	}
 	
 }

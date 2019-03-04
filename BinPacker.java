@@ -1,5 +1,6 @@
 package Lab2;
 
+import java.io.File;
 import java.util.Scanner;
 
 /**
@@ -9,12 +10,44 @@ import java.util.Scanner;
  */
 
 public class BinPacker {
+	
+	Scanner input;
 
 	public BinPacker(String capacity, String file_name) {
 		
+		File file = new File(file_name);
 		
+		try {
+			
+			input = new Scanner(file);
+			
+		} catch(Exception e) {
+			
+			System.out.println("Could not find file");
+			
+		}
+		
+		int convCap = Integer.parseInt(capacity);
+		
+		pack(convCap);
 		
 	}
+	
+	public void pack(int capacity) {
+		
+		Bin bin = new Bin(capacity);
+		
+		while (input.hasNext()) {
+			int itemSize = input.nextInt();
+			
+			bin.put(itemSize);
+			
+		}
+		
+		System.out.println("# of Items: " + bin.numItems());
+		
+	}
+	
 	
 	
 	public static void main(String args[]) {
