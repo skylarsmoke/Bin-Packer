@@ -1,6 +1,7 @@
 package Lab2;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -40,16 +41,19 @@ public class BinPacker {
 		while (input.hasNext()) {
 			int itemSize = input.nextInt();
 			
-			bin.put(itemSize);
-			
+			if (bin.checkFit(itemSize)) {
+				bin.put(itemSize);
+			} 
+
+		
 		}
 		
 		System.out.println("# of Items: " + bin.numItems());
 		
+		
 	}
 	
-	
-	
+
 	public static void main(String args[]) {
 		
 		// BinPacker BP = new BinPacker(args[0], args[1]);
