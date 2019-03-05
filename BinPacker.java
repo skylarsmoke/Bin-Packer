@@ -1,8 +1,18 @@
 package Lab2;
 
 import java.io.File;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.ListIterator;
+=======
+<<<<<<< Updated upstream
+import java.util.Arrays;
+=======
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.ListIterator;
+>>>>>>> Stashed changes
+>>>>>>> 71e8a506197f7ee7b9f27b2ef5955d447f622251
 import java.util.Scanner;
 
 /**
@@ -40,11 +50,44 @@ public class BinPacker {
 		bestFitDecreasing(convCap);
 		
 	}
+<<<<<<< HEAD
 
+=======
+	
+<<<<<<< Updated upstream
+	public void firstFit(int capacity) {
+		
+		Bin bin = new Bin(capacity);
+		
+		while (input.hasNext()) {
+			int itemSize = input.nextInt();
+			
+			if (bin.checkFit(itemSize)) {
+				bin.put(itemSize);
+			} 
+
+		
+=======
+//	public void pack(int capacity) {
+//				
+//		while (input.hasNext()) {
+//			int itemSize = input.nextInt();
+////			if(bin.put(itemSize)==true)
+//				bin.put(itemSize);
+////			else
+////				System.out.println("No Space");
+//			
+//		}
+//		
+//		System.out.println("# of Items: " + bin.numItems());
+//		
+//	}
+>>>>>>> 71e8a506197f7ee7b9f27b2ef5955d447f622251
 	int i =0;
 	public void firstFit(int capacity)
 	{
 		ArrayList<Bin> bins= new ArrayList<Bin>();
+<<<<<<< HEAD
 		
 		bins.add(new Bin(capacity));
 		
@@ -52,6 +95,12 @@ public class BinPacker {
 		
 		while(firstFit.hasNext()) {
 			int itemSize= firstFit.nextInt();
+=======
+		bins.add(new Bin(capacity));
+		ListIterator<Bin> iter = bins.listIterator();
+		while(input.hasNext()) {
+			int itemSize= input.nextInt();
+>>>>>>> 71e8a506197f7ee7b9f27b2ef5955d447f622251
 			boolean tf = false;
 			if (bins.get(0).getOpenSpace()>=itemSize)
 			{
@@ -73,6 +122,7 @@ public class BinPacker {
 				bins.add(new Bin(capacity));
 				bins.get(i).put(itemSize);
 			}
+<<<<<<< HEAD
 
 		}
 		for(int z= 0; z<bins.size(); z++) {
@@ -85,6 +135,16 @@ public class BinPacker {
 	}
 
 	public void bestFitDecreasing(int capacity) {
+=======
+>>>>>>> Stashed changes
+		}
+	for(int z= 0; z<bins.size(); z++) {
+		System.out.println("Bin #: "+z);
+		System.out.println("Open Space: "+bins.get(z).getOpenSpace());
+		System.out.println("Number of Items: " + bins.get(z).numItems());
+		System.out.println();
+	}
+>>>>>>> 71e8a506197f7ee7b9f27b2ef5955d447f622251
 		
 		BST bst = new BST();
 		
@@ -96,6 +156,14 @@ public class BinPacker {
 		
 	}
 	
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+
+=======
+	
+>>>>>>> Stashed changes
+>>>>>>> 71e8a506197f7ee7b9f27b2ef5955d447f622251
 	public static void main(String args[]) {
 		
 		// BinPacker BP = new BinPacker(args[0], args[1]);
