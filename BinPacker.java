@@ -29,11 +29,11 @@ public class BinPacker {
 		
 		int convCap = Integer.parseInt(capacity);
 		
-		pack(convCap);
+		firstFit(convCap);
 		
 	}
 	
-	public void pack(int capacity) {
+	public void firstFit(int capacity) {
 		
 		Bin bin = new Bin(capacity);
 		
