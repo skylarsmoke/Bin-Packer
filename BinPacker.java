@@ -2,7 +2,6 @@ package Lab2;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.ListIterator;
 import java.util.Scanner;
 
 /**
@@ -37,21 +36,19 @@ public class BinPacker {
 		int convCap = Integer.parseInt(capacity);
 		
 		firstFit(convCap);
-		bestFitDecreasing(convCap);
+		bestFit(convCap);
 		
 	}
 
-	int i =0;
+	int i = 0;
 	public void firstFit(int capacity)
 	{
 		ArrayList<Bin> bins= new ArrayList<Bin>();
 		
 		bins.add(new Bin(capacity));
 		
-		ListIterator<Bin> iter = bins.listIterator();
-		
 		while(firstFit.hasNext()) {
-			int itemSize= firstFit.nextInt();
+			int itemSize = firstFit.nextInt();
 			boolean tf = false;
 			if (bins.get(0).getOpenSpace()>=itemSize)
 			{
@@ -81,21 +78,53 @@ public class BinPacker {
 			System.out.println("Number of Items: " + bins.get(z).numItems());
 			System.out.println();
 		}
-		
+	
+		firstFit.close();
 	}
 
-	public void bestFitDecreasing(int capacity) {
+	
+	
+	public void bestFit(int capacity) {
 		
-		BST bst = new BST();
+		BST<Integer, Bin> bst = new BST<Integer, Bin>();
 		
+		bst.put(1, new Bin(capacity));
+		int i = 1;
 		while (bestFit.hasNext()) {
+		
 			int itemSize = bestFit.nextInt();
 			
-			System.out.println(itemSize);
+			boolean placed = false;
+			
+			if (bst.get(i).checkFit(itemSize)) {
+				if (itemSize == bst.get(i).getOpenSpace()) {
+					bst.get(i).put(itemSize);
+					placed = true;
+				} 		
+				
+				
+				
+			} 
+			
+			System.out.println(bst.min());
+			
 		}
+		
+		System.out.println(bst.get(1).numItems());
 		
 	}
 	
+	/**
+	public void worstFit(int capacity) {
+		
+		while (worstFit.hasNext()) {
+			int itemSize = worstFit.nextInt();
+			
+			
+		}
+		
+	}
+	*/
 	public static void main(String args[]) {
 		
 		// BinPacker BP = new BinPacker(args[0], args[1]);
