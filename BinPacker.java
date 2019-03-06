@@ -97,20 +97,47 @@ public class BinPacker {
 			boolean placed = false;
 			
 			if (bst.get(i).checkFit(itemSize)) {
+				int difference = itemSize - bst.get(i).getOpenSpace();
+				System.out.println("Difference: " + difference);
+				for (int j = 1; j < bst.size() + 1; j++) {
+					int newDiff = itemSize - bst.get(j).getOpenSpace();
+					System.out.println("NewDiff: " + newDiff);
+					if (newDiff < difference) {
+						bst.get(j).put(itemSize);
+						placed = true;
+					}
+				}
+				
+				if (!placed) {
+					i++;
+					bst.put(i, new Bin(capacity));
+					bst.get(i).put(itemSize);
+				}
+				/**
 				if (itemSize == bst.get(i).getOpenSpace()) {
 					bst.get(i).put(itemSize);
 					placed = true;
-				} 		
-				
-				
-				
-			} 
+				} else {
+					bst.get(i).put(itemSize);
+				} */
+			}
 			
-			System.out.println(bst.min());
+			
+				
+				
+				
+			
+			
+			//System.out.println(bst.min());
 			
 		}
+		System.out.println("Size " + bst.size());
 		
-		System.out.println(bst.get(1).numItems());
+		for (int k = 1; k < bst.size() + 1; k++) {
+			System.out.println(bst.get(k).numItems());
+		}
+		
+		
 		
 	}
 	
